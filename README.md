@@ -91,3 +91,196 @@ This would update/create the AWS Profile in your local machine
 ```
 這樣就設定好 amplify CLI 了！可以開始使用 amplify 了！
 
+## 建立前端
+在你電腦上打開 Terminal/終端機(MacOS) 或 PowerShell(Windows)
+
+接下來要建立這個專案的架構
+```bash
+mkdir -p amplify-js-app/src && cd amplify-js-app
+```
+上面這行指令建立了一個叫 amplify-js-app 的資料夾
+在 amplify-js-app 這個資料夾中建立了一個叫 src 的資料夾
+然後進入 amplify-js-app 這個資料夾中
+```bash
+touch index.html src/app.js webpack.config.js
+```
+接下來，建立了 `index.html` `webpack.config.js` 還有在 src 中的 `app.js` 三個檔案
+
+然後使用 `npm` 這個套件管理工具下載相依的套件（包含 amplify 的 SDK）
+（一行一行跑）
+`npm init` 會問一些設定，基本上都用預設的就可以了
+```shell
+npm init
+npm install aws-amplify
+npm install webpack webpack-cli webpack-dev-server copy-webpack-plugin --save-dev
+```
+> 可以看到我們下載了 webpack 以及相關的套件。
+> webpack 是用來「打包」的，他可以在複雜的前端結構，將多個 js 檔打包成一個單一檔案
+
+> `--save-dev` 指的是這是開發時才會用到的，在正式 production 環境中不需要
+
+載完後，整個專案的架構會長得像這樣
+```
+amplify-js-app
+├── node_modules/
+├── src/
+│   └── app.js
+├── index.html
+├── package-lock.json
+├── package.json
+└── webpack.config.js
+```
+`package.json` 是 npm 用來記錄專案相關的設定的檔案
+接下來，在 `package.json` 中**加入**
+```javascript
+"scripts": {
+    "start": "webpack && webpack-dev-server --mode development",
+    "build": "webpack"
+}
+```
+意思是在執行 `npm start` 的時候，實際上會執行 `npm webpack && webpack-dev-server --mode`
+執行 `npm build` 的時候，實際上會執行 `npm webpack`
+
+再來在 `index.html` 裡新增：
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Amplify</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      html,
+      body {
+        font-family: 'Amazon Ember', 'Helvetica', 'sans-serif';
+        margin: 0;
+      }
+      a {
+        color: #ff9900;
+      }
+      h1 {
+        font-weight: 300;
+      }
+      hr {
+        height: 1px;
+        background: lightgray;
+        border: none;
+      }
+      .app {
+        width: 100%;
+      }
+      .app-header {
+        color: white;
+        text-align: center;
+        background: linear-gradient(30deg, #f90 55%, #ffc300);
+        width: 100%;
+        margin: 0 0 1em 0;
+        padding: 3em 0 3em 0;
+        box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.3);
+      }
+      .app-logo {
+        width: 126px;
+        margin: 0 auto;
+      }
+      .app-body {
+        width: 400px;
+        margin: 0 auto;
+        text-align: center;
+      }
+      .app-body button {
+        background-color: #ff9900;
+        font-size: 14px;
+        color: white;
+        text-transform: uppercase;
+        padding: 1em;
+        border: none;
+      }
+      .app-body button:hover {
+        opacity: 0.8;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="app">
+      <div class="app-header">
+        <div class="app-logo">
+          <img
+            src="https://aws-amplify.github.io/images/Logos/Amplify-Logo-White.svg"
+            alt="AWS Amplify"
+          />
+        </div>
+        <h1>Welcome to Amplify</h1>
+      </div>
+      <div class="app-body">
+        <h1>Mutation Results</h1>
+        <button id="MutationEventButton">Add data</button>
+        <div id="MutationResult"></div>
+        <hr />
+
+        <h1>Query Results</h1>
+        <div id="QueryResult"></div>
+        <hr />
+
+        <h1>Subscription Results</h1>
+        <div id="SubscriptionResult"></div>
+      </div>
+    </div>
+    <script src="main.bundle.js"></script>
+  </body>
+</html>
+```
+> html 給了網頁畫面基礎的架構，而 \<style> \</style> 之間包的 CSS 語法，則可以美化 html 中的架構
+
+接下來撰寫 `webpack.config.js`：
+```javascript
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const webpack = require('webpack');
+const path = require('path');
+
+module.exports = {
+  mode: 'development',
+  entry: './src/app.js',
+  output: {
+    filename: '[name].bundle.js',
+    path: path.resolve(__dirname, 'dist')
+  },
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/
+      }
+    ]
+  },
+  devServer: {
+    client: {
+      overlay: true
+    },
+    hot: true,
+    watchFiles: ['src/*', 'index.html']
+  },
+  plugins: [
+    new CopyWebpackPlugin({
+      patterns: ['index.html']
+    }),
+    new webpack.HotModuleReplacementPlugin()
+  ]
+};
+```
+> `webpack.config.js` 是用來設定 webpack 用的。
+> 例如 `entry: './src/app.js'` 就是告訴 webpack 程式是從 `./src/app.js` 這個檔案開始執行的，在打包時 webpack 才知道要從 `./src/app.js` 開始
+
+這樣，一個簡單的前端就建好了 🎉
+
+最後，回到 Terminal 執行
+```shell
+npm start
+```
+> 這個指令就會在你的電腦上架一個 HTTP Server 讓你自己可以連上來，並且看到前端畫面
+> 而 `npm start` 實際上執行的指令，就是我們之前在 `package.json` 中設定的
+
+指令執行後 Terminal 會停在執行的畫面，然後將畫面切回瀏覽器，打開 http://localhost:8080
+就可以看到剛剛用好的前端畫面了！
+
+但因為現在還沒有後端，所以 Add data 這個按鈕按下去是沒有反應的
