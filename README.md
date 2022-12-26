@@ -1,3 +1,4 @@
+![](https://s3.amazonaws.com/aws-mobile-hub-images/aws-amplify-logo.png)
 # AWS Amplify 工作坊
 > 2022/12/29 18:00 @AWS台北辦公室
 >
@@ -284,3 +285,134 @@ npm start
 就可以看到剛剛用好的前端畫面了！
 
 但因為現在還沒有後端，所以 Add data 這個按鈕按下去是沒有反應的
+
+## 建立後端
+我們使用 Amplify 來建立後端，所以一開始先初始化 Amplify
+
+### Amplify 專案初始化
+在 Terminal 輸入並在前面建立好的專案根目錄（.../amplify-js-app/）下執行：
+```shell
+amplify init
+```
+
+接著 Amplify 會問一些問題（可以照下面的範例回答就好）
+```shell
+? Enter a name for the project: amplifyjsapp
+The following configuration will be applied:
+
+Project information
+| Name: amplifyjsapp
+| Environment: dev
+| Default editor: Visual Studio Code
+| App type: javascript
+| Javascript framework: none
+| Source Directory Path: src
+| Distribution Directory Path: dist
+| Build Command: npm run-script build
+| Start Command: npm run-script start
+
+? Initialize the project with the above configuration? Yes
+Using default provider  awscloudformation
+? Select the authentication method you want to use: AWS profile
+
+For more information on AWS Profiles, see:
+https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html
+
+? Please choose the profile you want to use: default
+```
+
+完成上面的動作後，這個 Amplify 專案就初始化完成了！
+初始化的過程它做了以下幾個動作：
+1. 在專案的根目錄（`.../amplify-js-app/`）下新增一個叫 `amplify` 的資料夾，用來儲存後端的定義，包含後面我們會加進來的 GraphQL API 和 web hosting。
+2. 在 `amplify-js-app/src` 中新增 `aws-exports.js`，有了存在這個檔案裡的資料，這個專案中的 Amplify JavaScript client library（前面 `npm install aws-amplify` 時下載的，可以參考 [GitHub 上的 aws-amplify/amplify.js](https://github.com/aws-amplify/amplify-js)）才能和 AWS 溝通。
+3. 修改 `.gitignore`，將不需要被 git 紀錄的檔案加進去
+4. 在 AWS 中新增一個 Amplify 專案，使用 `amplify console` 可以在 AWS Console 中看到
+
+```
+amplify-js-app
+├── node_modules/
+├── amplify *
+├── src/
+│   ├── aws-exports.js *
+│   └── app.js
+├── index.html
+├── package-lock.json
+├── package.json
+└── webpack.config.js
+```
+
+### 建立 API 和 Database
+
+這個專案會使用的 API 是 GraphQL API。
+Amplify 會用 AWS AppSync 來建立一個 GraphQL API。而 Database 會用到 Amazon DynamoDB（NoSQL 的 database）。
+
+> API 就是 Application Programming Interface，是前端和後端溝通的橋樑。在這個專案中，前端透過 API 就可以拿到或修改 Database 中的資料。
+> 而 GraphQL API 就是一種 API 的形式。（補充：如果想知道 REST API 和 GraphQL API 的差別，可以參考 [What Is GraphQL? REST vs. GraphQL](https://youtu.be/yWzKJPw_VzM)）
+
+#### 建立 API 和 Database
+用 amplify 建立 API 和 Database 非常簡單。
+在專案的根目錄輸入並執行：
+```
+amplify add api
+```
+這個指令會將 GraphQL API 加進這個專案，並自動把 Database 準備好
+
+他會請你輸入一些選項，在工作坊選項請根據以下來選
+```
+? Select from one of the below mentioned services:
+# GraphQL
+? Here is the GraphQL API that we will create. Select a setting to edit or continue
+# Continue
+? Choose a schema template:
+# Single object with fields (e.g., “Todo” with ID, name, description)
+✔ Do you want to edit the schema now? (Y/n)
+# Yes
+```
+接下來他會自動幫你打開你的編輯器，要給 GraphQL schema
+**amplify/backend/api/amplifyjsapp/schema.graphql**
+```graphql
+# This "input" configures a global authorization rule to enable public access to
+# all models in this schema. Learn more about authorization rules here: https://docs.amplify.aws/cli/graphql/authorization-rules
+input AMPLIFY { globalAuthRule: AuthRule = { allow: public } } # FOR TESTING ONLY!
+
+type Todo @model {
+  id: ID!
+  name: String!
+  description: String
+}
+```
+> @model 是 Amplify CLI [GraphQL transformer](https://docs.amplify.aws/cli/graphql/data-modeling/) 的 feature 之一
+
+回到 command line，按 Enter 繼續。
+
+接著我們要把 API 部署到 AWS 上，在 command line 輸入：
+```shell
+amplify push
+```
+一樣輸入以下的設定，Amplify 會根據輸入的設定，自動幫你產生 code，讓我們能更簡單的執行 GraphQL 操作
+```
+? Do you want to generate code for your newly created GraphQL API (Yes)
+? Choose the code generation language target (javascript)
+? Enter the file name pattern of graphql queries, mutations and subscriptions (src/graphql/**/*.js)
+? Do you want to generate/update all possible GraphQL operations - queries, mutations and subscriptions (Yes)
+? Enter maximum statement depth [increase from default if your schema is deeply nested] (2)
+```
+
+這樣 API 就完成了 🎉
+> 如果想要測試 API 的話，可以用 `amplify console api` 這個指令，使用 AWS console 來測試
+
+可以在 command line 使用 `amplify status` 查看 Amplify 的狀態
+```shell
+amplify status
+```
+目前的狀態會長得像這樣
+```
+Current Environment: dev
+
+| Category | Resource name | Operation | Provider plugin   |
+| -------- | ------------- | --------- | ----------------- |
+| Api      | amplifyjsapp  | No Change | awscloudformation |
+
+GraphQL endpoint: https://•••••••••••.appsync-api.us-east-1.amazonaws.com/graphql
+GraphQL API KEY: ••••••••••
+```
