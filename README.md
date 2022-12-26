@@ -416,3 +416,62 @@ Current Environment: dev
 GraphQL endpoint: https://•••••••••••.appsync-api.us-east-1.amazonaws.com/graphql
 GraphQL API KEY: ••••••••••
 ```
+
+## 用 API 連接前端與後端
+接下來要修改一開始建立前端時的檔案 `src/app.js`（原本應該是空的）
+將以下的 code 加進 `src/app.js`
+> `Amplify.configure()` 會用之前儲存的 Amplify 設定，來設定好 library
+> `API.graphql()` 是用來透過 GraphQL API 來對後端 database 操作
+```javascript
+import { Amplify, API, graphqlOperation } from "aws-amplify";
+
+import awsconfig from "./aws-exports";
+import { createTodo } from "./graphql/mutations";
+import { listTodos } from "./graphql/queries";
+import { onCreateTodo } from "./graphql/subscriptions";
+
+Amplify.configure(awsconfig);
+
+async function createNewTodo() {
+  const todo = {
+    name: "Use AppSync",
+    description: `Realtime and Offline (${new Date().toLocaleString()})`,
+  };
+
+  return await API.graphql(graphqlOperation(createTodo, { input: todo }));
+}
+
+async function getData() {
+  API.graphql(graphqlOperation(listTodos)).then((evt) => {
+    evt.data.listTodos.items.map((todo, i) => {
+      QueryResult.innerHTML += `<p>${todo.name} - ${todo.description}</p>`;
+    });
+  });
+}
+
+const MutationButton = document.getElementById("MutationEventButton");
+const MutationResult = document.getElementById("MutationResult");
+const QueryResult = document.getElementById("QueryResult");
+const SubscriptionResult = document.getElementById("SubscriptionResult");
+
+MutationButton.addEventListener("click", (evt) => {
+  createNewTodo().then((evt) => {
+    MutationResult.innerHTML += `<p>${evt.data.createTodo.name} - ${evt.data.createTodo.description}</p>`;
+  });
+});
+
+API.graphql(graphqlOperation(onCreateTodo)).subscribe({
+  next: (evt) => {
+    const todo = evt.value.data.onCreateTodo;
+    SubscriptionResult.innerHTML += `<p>${todo.name} - ${todo.description}</p>`;
+  },
+});
+
+getData();
+```
+
+接著在 command line 輸入
+```shell
+npm start
+```
+就可以在自己的電腦的瀏覽器上看到成品啦 🤩
