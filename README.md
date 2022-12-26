@@ -475,3 +475,22 @@ getData();
 npm start
 ```
 就可以在自己的電腦的瀏覽器上看到成品啦 🤩
+
+## 部署與託管（Deploy and Host）
+在專案的根目錄下，執行
+```
+amplify add hosting
+```
+選擇
+```
+? Select the plugin module to execute: Hosting with Amplify Console (Managed hosting with custom domains, Continuous deployment)
+? Choose a type: Manual Deployment
+```
+> 這邊選擇 Manual Deployment（手動部署），Amplify Hosting 也支援[持續部署（CD）](https://docs.aws.amazon.com/amplify/latest/userguide/multi-environments.html#standard)
+
+接著 publish
+```
+amplify publish
+```
+publish 後，command line 會顯示剛剛 publish 的專案網址，使用這個網址就可以到你的網站
+一切完成，你的剛剛做出來的 fullstack website 已經在網路上了！🥳
