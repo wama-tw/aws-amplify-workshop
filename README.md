@@ -121,6 +121,36 @@ This would update/create the AWS Profile in your local machine
 這樣就設定好 amplify CLI 了！可以開始使用 amplify 了！
 
 ## 建立前端
+- [Option 01: 可以用以下指令直接將前端架構下載到電腦中](#option-01-可以用以下指令直接將前端架構下載到電腦中)
+- [Option 02: 手動架設前端](#option-02-手動架設前端)
+---
+##### Option 01: 可以用以下指令直接將前端架構下載到電腦中
+```shell
+git clone https://github.com/wama-tw/aws-amplify-workshop.git
+```
+接著下載前端會需要用到的套件
+> 套件就是「別人寫好的工具」，這個專案中下載的套件包含 Amplify 官方提供的可以使用 javascript 來操作 amplify 的工具
+```shell
+npm install
+```
+下載完成後，前端就準備完成了 🎉
+
+接下來可以看一下目前的前端長什麼樣子
+```shell
+npm start
+```
+> 這個指令就會在你的電腦上架一個 HTTP Server 讓你自己可以連上來，並且看到前端畫面
+> 而 `npm start` 實際上執行的指令，就是我們之前在 `package.json` 中設定的
+
+指令執行後 Terminal 會停在執行的畫面，然後將畫面切回瀏覽器，打開 http://localhost:8080
+就可以看到剛剛用好的前端畫面了！
+
+但因為現在還沒有後端，所以 Add data 這個按鈕按下去是沒有反應的
+
+接下來跳到 [建立後端](#建立後端) 繼續 workshop
+
+---
+##### Option 02: 手動架設前端
 在你電腦上打開 Terminal/終端機(MacOS) 或 PowerShell(Windows)
 
 接下來要建立這個專案的架構
