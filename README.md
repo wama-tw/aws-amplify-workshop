@@ -53,8 +53,9 @@ AWS Amplify 就是為了可能比較不了解的 AWS 產品們的開發人員而
 ```bash
 npm install -g @aws-amplify/cli
 ```
-`-g` 是指 global，在這台電腦上的任何地方都可以使用
-如果沒有加 `-g` 的話，
+`-g` 是指 global，在這台電腦上的任何地方都可以使用。
+如果沒有加 `-g` 的話，就只能在這個專案內才能使用
+> 通常 command 都會用 -g 下載
 
 - 下載完畢後，設定 Amplify CLI
 ```bash
@@ -207,7 +208,7 @@ amplify-js-app
       <div class="app-header">
         <div class="app-logo">
           <img
-            src="https://aws-amplify.github.io/images/Logos/Amplify-Logo-White.svg"
+            src="https://imgur.com/0WFFUef.png"
             alt="AWS Amplify"
           />
         </div>
