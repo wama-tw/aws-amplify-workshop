@@ -3,8 +3,50 @@
 > 2022/12/29 18:00 @AWS台北辦公室
 >
 > presented / written by Wama (AWS Educate Cloud Ambassador, 技術支援)
+## AWS Amplify 是什麼？
+> [AWS Amplify](https://aws.amazon.com/tw/amplify/) 是一種完整的解決方案，讓前端 Web 和行動開發人員可以快速在 AWS 上建置、推出和託管完整堆疊應用程式，並且靈活地利用廣泛的 AWS 服務以因應使用案例的發展。不需要雲端專業技能。
 
-這份文件主要是基於 [Amplify API 官方文件](https://docs.amplify.aws/start/getting-started/installation/q/integration/js/) 所延伸撰寫，如有發現錯誤歡迎指教
+AWS 擁有眾多產品，例如 EC2、S3、Dynamo DB、IAM、SageMaker 等等。
+如果把每一個產品想像成一種食材，那解決方案就像是食譜，它告訴你如何組合各種食材，完成你想要的菜。
+
+如果你是廚師，你很了解各種食材，那你當然可以很自由的運用每一種食材（AWS 的產品），完美的將它們組合成為一道美味的菜餚（也就是你運行在 AWS 上的服務）。
+
+那萬一你了解的服務不多，不會煮菜怎麼辦？
+
+AWS Amplify 就是為了可能比較不了解的 AWS 產品們的開發人員而生。AWS Amplify 就像一家賣料理包的商店，如果想吃咖哩，就買咖哩的料理包回家加熱一下拌飯就可以吃了。你根本不需要知道咖哩是怎麼煮出來的。
+例如今天的工作坊，透過 AWS Amplify，就算我不知道 AWS 其他任何的產品怎麼用，我們還是可以在 AWS 上建置一個全端的網頁。但是它實際上就是運用 AWS 上各種產品來組合而成的。（如果你知道 AWS CloudFormation 的話，Amplify 的背後其實就是利用 CloudFormation 來建置和串起各個 AWS 的服務）
+
+![](https://i.imgur.com/gkYbcYW.png)
+> image source: [What is AWS Amplify? Pros and Cons?](https://www.youtube.com/watch?v=HkbjHtG_d7w)
+
+後半部分的內容主要是基於 [Amplify API 官方文件](https://docs.amplify.aws/start/getting-started/installation/q/integration/js/) 所延伸撰寫，如有發現錯誤歡迎指教
+
+## AWS Amplify 可以做什麼？
+![](https://imgur.com/eFEgNmu.jpg)
+- 可以**快速**開發網站、手機應用程式（iOS / Android）
+  - 支援許多熱門的開發框架
+- 可以託管靜態網站
+
+![](https://imgur.com/zQnAxSZ.jpg)
+對於前端開發人員、需要快速開發的人（例如：黑客松比賽時）非常適合
+### Amplify 使用案例
+可以查看 AWS 官方提供，有使用 AWS Amplify 的企業或產品： [AWS Amplify Customers](https://aws.amazon.com/tw/amplify/customers/?nc=sn&loc=7)
+例如：
+- Amazon Music: Amazon 的音樂串流服務
+- Neiman Marcus: 美國的高級百貨公司
+- [QsrSoft](https://aws.amazon.com/tw/solutions/case-studies/qsrsoft-case-study/): 軟體和應用程式設計公司。
+  - 兩名開發人員的團隊，僅只 3 個月便將 QsrSoft TV 重新設計完成
+
+
+### 什麼是前後端？
+![](https://www.seobility.net/en/wiki/images/0/04/Frontend-vs-Backend.png)
+> Figure: Frontend vs. Backend - Author: Seobility - License: CC BY-SA 4.0
+
+簡單而言，前端就是你可以在畫面上看到的。包含如何呈現資料、畫面。
+而廣義而言，後端就是泛指「使用者看不到的」。像是如何儲存、處理資料（database），實作服務內容。
+
+以 Netflix 首頁來說，後端就是用演算法算出你可能會喜歡的影片，然後傳送影片列表和資料給前端。然後前端負責把很多影片呈現得順暢而且美美的，滑鼠移上去還會放大。
+而前後端溝通的橋樑叫做 API (Application Programming Interface)。
 
 ## 工作坊成品
 跟隨本次工作坊，將可以學習及完成：
@@ -30,21 +72,6 @@
   如果你想保留今天做出來的成果，你可以使用 [你自己的 AWS 帳號](https://portal.aws.amazon.com/billing/signup?redirect_url=https%3A%2F%2Faws.amazon.com%2Fregistration-confirmation#/start)（需要綁定信用卡）
 - Option2:
   使用今日工作坊的 [Event Engine!!!!!!!!//TODO: Add link](//TODO)（工作坊結束後會自動銷毀）
-## AWS Amplify 是什麼？
-> [AWS Amplify](https://aws.amazon.com/tw/amplify/) 是一種完整的解決方案，讓前端 Web 和行動開發人員可以快速在 AWS 上建置、推出和託管完整堆疊應用程式，並且靈活地利用廣泛的 AWS 服務以因應使用案例的發展。不需要雲端專業技能。
-
-AWS 擁有眾多產品，例如 EC2、S3、Dynamo DB、IAM、SageMaker 等等。
-如果把每一個產品想像成一種食材，那解決方案就像是食譜，它告訴你如何組合各種食材，完成你想要的菜。
-
-如果你是廚師，你很了解各種食材，那你當然可以很自由的運用每一種食材（AWS 的產品），完美的將它們組合成為一道美味的菜餚（也就是你運行在 AWS 上的服務）。
-
-那萬一你了解的服務不多，不會煮菜怎麼辦？
-
-AWS Amplify 就是為了可能比較不了解的 AWS 產品們的開發人員而生。AWS Amplify 就像一家賣料理包的商店，如果想吃咖哩，就買咖哩的料理包回家加熱一下拌飯就可以吃了。你根本不需要知道咖哩是怎麼煮出來的。
-例如今天的工作坊，透過 AWS Amplify，就算我不知道 AWS 其他任何的產品怎麼用，我們還是可以在 AWS 上建置一個全端的網頁。但是它實際上就是運用 AWS 上各種產品來組合而成的。（如果你知道 AWS CloudFormation 的話，Amplify 的背後其實就是利用 CloudFormation 來建置和串起各個 AWS 的服務）
-
-![](https://i.imgur.com/gkYbcYW.png)
-> image source: [What is AWS Amplify? Pros and Cons?](https://www.youtube.com/watch?v=HkbjHtG_d7w)
 
 ## 下載及設定 Amplify CLI
 - 打開 Terminal/終端機(MacOS) 或 PowerShell(Windows)
