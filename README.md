@@ -56,6 +56,7 @@ AWS Amplify 就是為了可能比較不了解的 AWS 產品們的開發人員而
 2. 利用 [AWS Amplify SDK](https://docs.amplify.aws/lib/graphqlapi/getting-started/q/platform/js/) 建立 GraphQL API 及 Database（serverless backend）
 3. 用建立的 GraphQL API 連接前端及 Database
 4. 最後，使用 Amplify 得到一個屬於自己的網頁🎉 （Amplify Deploy & Hosting）
+[示範網頁](https://dev.d22lvkmu0wktsi.amplifyapp.com/)
 ![Screenshot of Amplify](https://docs.amplify.aws/images/browser-vanillajs-hosting.png)
 
 ## 開始之前...
