@@ -82,6 +82,10 @@ AWS Amplify 就是為了可能比較不了解的 AWS 產品們的開發人員而
 ```bash
 npm install -g @aws-amplify/cli
 ```
+**如果出現 Error 的話**: 
+- Mac 可以用 `sudo npm install -g @aws-amplify/cli` 再試一次（會要求輸入你電腦的密碼）
+- Windows 可以用系統管理員身份執行 PowerShell
+
 `-g` 是指 global，在這台電腦上的任何地方都可以使用。
 如果沒有加 `-g` 的話，就只能在這個專案內才能使用
 > 通常 command 都會用 -g 下載
@@ -132,7 +136,11 @@ git clone https://github.com/wama-tw/aws-amplify-workshop.git
 ```shell
 cd aws-amplify-workshop/amplify-js-app && npm install
 ```
-下載完成後，前端就準備完成了 🎉
+**如果出現 Error 的話**: 
+- Mac 可以用 `sudo npm install` 再試一次（會要求輸入你電腦的密碼）
+- Windows 可以用系統管理員身份執行 PowerShell
+
+他會下載約一分鐘，下載完成後，前端就準備完成了 🎉
 
 接下來可以看一下目前的前端長什麼樣子
 ```shell
