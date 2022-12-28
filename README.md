@@ -55,6 +55,7 @@ AWS Amplify 就是為了可能比較不了解的 AWS 產品們的開發人員而
 2. 利用 [AWS Amplify SDK](https://docs.amplify.aws/lib/graphqlapi/getting-started/q/platform/js/) 建立 GraphQL API 及 Database（serverless backend）
 3. 用建立的 GraphQL API 連接前端及 Database
 4. 最後，使用 AWS Amplify 得到一個屬於自己的網頁🎉 （AWS Amplify Deploy & Hosting）
+- [示範網頁](https://dev.d22lvkmu0wktsi.amplifyapp.com/)
 ![Screenshot of AWS Amplify](https://docs.amplify.aws/images/browser-vanillajs-hosting.png)
 
 ## 開始之前...
@@ -181,7 +182,7 @@ npm start
 amplify init
 ```
 
-接著 AWS Amplify 會問一些問題（可以照下面的範例回答就好）
+接著 AWS Amplify 會問一些問題（**都選預設的選項就可以了**）
 ```shell
 ? Enter a name for the project: amplifyjsapp
 The following configuration will be applied:
@@ -276,7 +277,7 @@ type Todo @model {
 amplify push
 ```
 
-一樣輸入以下的設定，AWS Amplify 會根據輸入的設定，自動幫你產生 code，讓我們能更簡單的執行 GraphQL 操作
+一樣輸入以下的設定，AWS Amplify 會根據輸入的設定，自動幫你產生 code，讓我們能更簡單的執行 GraphQL 操作，一樣**都選預設的選項就可以了**
 ```
 ? Do you want to generate code for your newly created GraphQL API (Yes)
 ? Choose the code generation language target (javascript)
