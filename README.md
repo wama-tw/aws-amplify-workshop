@@ -4,7 +4,7 @@
 >
 > presented / written by Wama (AWS Educate Cloud Ambassador, 技術支援)
 
-[簡報](https://reurl.cc/jR2AxZ)
+[簡報](https://hackmd.io/@wama/ryCoFiFFo)
 ## AWS Amplify 是什麼？
 > [AWS Amplify](https://aws.amazon.com/tw/amplify/) 是一種完整的解決方案，讓前端 Web 和行動開發人員可以快速在 AWS 上建置、推出和託管完整堆疊應用程式，並且靈活地利用廣泛的 AWS 服務以因應使用案例的發展。不需要雲端專業技能。
 
