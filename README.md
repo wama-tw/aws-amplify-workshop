@@ -21,7 +21,7 @@ AWS Amplify 就是為了可能比較不了解的 AWS 產品們的開發人員而
 ![](https://i.imgur.com/gkYbcYW.png)
 > image source: [What is AWS Amplify? Pros and Cons?](https://www.youtube.com/watch?v=HkbjHtG_d7w)
 
-後半部分的內容主要是基於 [Amplify API 官方文件](https://docs.amplify.aws/start/getting-started/installation/q/integration/js/) 所延伸撰寫，如有發現錯誤歡迎指教
+後半部分的內容主要是基於 [AWS Amplify API 官方文件](https://docs.amplify.aws/start/getting-started/installation/q/integration/js/) 所延伸撰寫，如有發現錯誤歡迎指教
 
 ## AWS Amplify 可以做什麼？
 ![](https://imgur.com/eFEgNmu.jpg)
@@ -31,14 +31,13 @@ AWS Amplify 就是為了可能比較不了解的 AWS 產品們的開發人員而
 
 ![](https://imgur.com/zQnAxSZ.jpg)
 對於前端開發人員、需要快速開發的人（例如：黑客松比賽時）非常適合
-### Amplify 使用案例
+### AWS Amplify 使用案例
 可以查看 AWS 官方提供，有使用 AWS Amplify 的企業或產品： [AWS Amplify Customers](https://aws.amazon.com/tw/amplify/customers/?nc=sn&loc=7)
 例如：
 - Amazon Music: Amazon 的音樂串流服務
 - Neiman Marcus: 美國的高級百貨公司
 - [QsrSoft](https://aws.amazon.com/tw/solutions/case-studies/qsrsoft-case-study/): 軟體和應用程式設計公司。
   - 兩名開發人員的團隊，僅只 3 個月便將 QsrSoft TV 重新設計完成
-
 
 ### 什麼是前後端？
 ![](https://www.seobility.net/en/wiki/images/0/04/Frontend-vs-Backend.png)
@@ -55,9 +54,8 @@ AWS Amplify 就是為了可能比較不了解的 AWS 產品們的開發人員而
 1. 基礎的網頁前端畫面
 2. 利用 [AWS Amplify SDK](https://docs.amplify.aws/lib/graphqlapi/getting-started/q/platform/js/) 建立 GraphQL API 及 Database（serverless backend）
 3. 用建立的 GraphQL API 連接前端及 Database
-4. 最後，使用 Amplify 得到一個屬於自己的網頁🎉 （Amplify Deploy & Hosting）
-[示範網頁](https://dev.d22lvkmu0wktsi.amplifyapp.com/)
-![Screenshot of Amplify](https://docs.amplify.aws/images/browser-vanillajs-hosting.png)
+4. 最後，使用 AWS Amplify 得到一個屬於自己的網頁🎉 （AWS Amplify Deploy & Hosting）
+![Screenshot of AWS Amplify](https://docs.amplify.aws/images/browser-vanillajs-hosting.png)
 
 ## 開始之前...
 ### 環境需求
@@ -75,6 +73,23 @@ AWS Amplify 就是為了可能比較不了解的 AWS 產品們的開發人員而
   如果你想保留今天做出來的成果，你可以使用 [你自己的 AWS 帳號](https://portal.aws.amazon.com/billing/signup?redirect_url=https%3A%2F%2Faws.amazon.com%2Fregistration-confirmation#/start)（需要綁定信用卡）
 - Option2:
   使用今日工作坊的 [Event Engine!!!!!!!!//TODO: Add link](//TODO)（工作坊結束後會自動銷毀）
+
+## AWS Amplify 是什麼？
+> [AWS Amplify](https://aws.amazon.com/tw/amplify/) 是一種完整的解決方案，讓前端 Web 和行動開發人員可以快速在 AWS 上建置、推出和託管完整堆疊應用程式，並且靈活地利用廣泛的 AWS 服務以因應使用案例的發展。不需要雲端專業技能。
+
+AWS 擁有眾多產品，例如 Amazon Elastic Compute Cloud (Amazon EC2)、Amazon Simple Storage Service (Amazon S3)、Amazon DynamoDB、AWS Identity and Access Management (AWS IAM)、Amazon SageMaker 等等。
+如果把每一個產品想像成一種食材，那解決方案就像是食譜，它告訴你如何組合各種食材，完成你想要的菜。
+
+如果你是廚師，你很了解各種食材，那你當然可以很自由的運用每一種食材（AWS 的產品），完美的將它們組合成為一道美味的菜餚（也就是你運行在 AWS 上的服務）。
+
+那萬一你了解的服務不多，不會煮菜怎麼辦？
+
+AWS Amplify 就是為了可能比較不了解的 AWS 產品們的開發人員而生。AWS Amplify 就像一家賣料理包的商店，如果想吃咖哩，就買咖哩的料理包回家加熱一下拌飯就可以吃了。你根本不需要知道咖哩是怎麼煮出來的。
+例如今天的工作坊，透過 AWS Amplify，就算我不知道 AWS 其他任何的產品怎麼用，我們還是可以在 AWS 上建置一個全端的網頁。但是它實際上就是運用 AWS 上各種產品來組合而成的。（如果你知道 AWS CloudFormation 的話，AWS Amplify 的背後其實就是利用 AWS CloudFormation 來建置和串起各個 AWS 的服務）
+
+![](https://i.imgur.com/gkYbcYW.png)
+> image source: [What is AWS Amplify? Pros and Cons?](https://www.youtube.com/watch?v=HkbjHtG_d7w)
+
 
 ## 下載及設定 Amplify CLI
 - 打開 Terminal/終端機(MacOS) 或 PowerShell(Windows)
@@ -102,8 +117,8 @@ amplify configure
 Specify the AWS Region
 ? region:  <Your preferred region>
 ```
-接著 Amplify CLI 會請你新增一個 [IAM](https://aws.amazon.com/tw/iam/) User
-> Amazon IAM (Identity and Access Management) 用於管理在 AWS 中的 users 和權限
+接著 Amplify CLI 會請你新增一個 [AWS IAM](https://aws.amazon.com/tw/iam/) User
+> AWS IAM (Identity and Access Management) 用於管理在 AWS 中的 users 和權限
 
 輸入完 username 後，就會開啟新增 IAM user 的瀏覽器視窗（在這裡輸入的 username 就是在 AWS IAM 中新增的 user 名稱）
 ```
@@ -120,14 +135,15 @@ Enter the access key of the newly created user:
 ? accessKeyId:  <這裡輸入剛剛新增 user 的 accessKeyId>
 ? secretAccessKey:  <這裡輸入剛剛新增 user 的 secretAccessKey>
 ```
-接下來 amplify 會把剛剛建好的 user 資料記在我們自己的電腦上（可以按 `Enter` 使用預設值就好）
+接下來 AWS Amplify 會把剛剛建好的 user 資料記在我們自己的電腦上（可以按 `Enter` 使用預設值就好）
 ```
 This would update/create the AWS Profile in your local machine
 ? Profile Name: default
 ```
-這樣就設定好 amplify CLI 了！可以開始使用 amplify 了！
+這樣就設定好 AWS Amplify CLI 了！可以開始使用 AWS Amplify 了！
 
 ## 建立前端
+
 可以用以下指令直接將前端架構下載到電腦中
 ```shell
 git clone https://github.com/wama-tw/aws-amplify-workshop.git
@@ -157,15 +173,15 @@ npm start
 但因為現在還沒有後端，所以 Add data 這個按鈕按下去是沒有反應的
 
 ## 建立後端
-我們使用 Amplify 來建立後端，所以一開始先初始化 Amplify
+我們使用 AWS Amplify 來建立後端，所以一開始先初始化 AWS Amplify
 
-### Amplify 專案初始化
+### AWS Amplify 專案初始化
 在 Terminal 輸入並在前面建立好的專案根目錄（.../amplify-js-app/）下執行：
 ```shell
 amplify init
 ```
 
-接著 Amplify 會問一些問題（**都選預設的選項就可以了**）
+接著 AWS Amplify 會問一些問題（可以照下面的範例回答就好）
 ```shell
 ? Enter a name for the project: amplifyjsapp
 The following configuration will be applied:
@@ -191,12 +207,12 @@ https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html
 ? Please choose the profile you want to use: default
 ```
 
-完成上面的動作後，這個 Amplify 專案就初始化完成了！
+完成上面的動作後，這個 AWS Amplify 專案就初始化完成了！
 初始化的過程它做了以下幾個動作：
 1. 在專案的根目錄（`.../amplify-js-app/`）下新增一個叫 `amplify` 的資料夾，用來儲存後端的定義，包含後面我們會加進來的 GraphQL API 和 web hosting。
 2. 在 `amplify-js-app/src` 中新增 `aws-exports.js`，有了存在這個檔案裡的資料，這個專案中的 Amplify JavaScript client library（前面 `npm install aws-amplify` 時下載的，可以參考 [GitHub 上的 aws-amplify/amplify.js](https://github.com/aws-amplify/amplify-js)）才能和 AWS 溝通。
 3. 修改 `.gitignore`，將不需要被 git 紀錄的檔案加進去
-4. 在 AWS 中新增一個 Amplify 專案，使用 `amplify console` 可以在 AWS Console 中看到
+4. 在 AWS 中新增一個 AWS Amplify 專案，使用 `amplify console` 可以在 AWS Console 中看到
 
 ```
 amplify-js-app
@@ -214,13 +230,13 @@ amplify-js-app
 ### 建立 API 和 Database
 
 這個專案會使用的 API 是 GraphQL API。
-Amplify 會用 AWS AppSync 來建立一個 GraphQL API。而 Database 會用到 Amazon DynamoDB（NoSQL 的 database）。
+AWS Amplify 會用 AWS AppSync 來建立一個 GraphQL API。而 Database 會用到 Amazon DynamoDB（NoSQL 的 database）。
 
 > API 就是 Application Programming Interface，是前端和後端溝通的橋樑。在這個專案中，前端透過 API 就可以拿到或修改 Database 中的資料。
 > 而 GraphQL API 就是一種 API 的形式。（補充：如果想知道 REST API 和 GraphQL API 的差別，可以參考 [What Is GraphQL? REST vs. GraphQL](https://youtu.be/yWzKJPw_VzM)）
 
 #### 建立 API 和 Database
-用 amplify 建立 API 和 Database 非常簡單。
+用 AWS Amplify 建立 API 和 Database 非常簡單。
 在專案的根目錄輸入並執行：
 ```
 amplify add api
@@ -251,7 +267,7 @@ type Todo @model {
   description: String
 }
 ```
-> @model 是 Amplify CLI [GraphQL transformer](https://docs.amplify.aws/cli/graphql/data-modeling/) 的 feature 之一
+> @model 是 AWS Amplify CLI [GraphQL transformer](https://docs.amplify.aws/cli/graphql/data-modeling/) 的 feature 之一
 
 回到 command line，按 Enter 繼續。
 
@@ -259,7 +275,8 @@ type Todo @model {
 ```shell
 amplify push
 ```
-一樣輸入以下的設定，Amplify 會根據輸入的設定，自動幫你產生 code，讓我們能更簡單的執行 GraphQL 操作，**都選預設的選項就可以了**
+
+一樣輸入以下的設定，AWS Amplify 會根據輸入的設定，自動幫你產生 code，讓我們能更簡單的執行 GraphQL 操作
 ```
 ? Do you want to generate code for your newly created GraphQL API (Yes)
 ? Choose the code generation language target (javascript)
@@ -271,7 +288,7 @@ amplify push
 這樣 API 就完成了 🎉
 > 如果想要測試 API 的話，可以用 `amplify console api` 這個指令，使用 AWS console 來測試
 
-可以在 command line 使用 `amplify status` 查看 Amplify 的狀態
+可以在 command line 使用 `amplify status` 查看 AWS Amplify 的狀態
 ```shell
 amplify status
 ```
@@ -374,7 +391,9 @@ publish 後，command line 會顯示剛剛 publish 的專案網址，使用這�
 一切完成，你的剛剛做出來的 fullstack website 已經在網路上了！🥳
 
 ## Cleanup
-如果你想將這個專案 Amplify 在 AWS 上使用的資源以及在 local 建立的檔案刪除的話，可以輸入
+如果你想將這個專案 AWS Amplify 在 AWS 上使用的資源以及在 local 建立的檔案刪除的話，可以輸入
 ```shell
 amplify delete
 ```
+
+_All trademarks are the property of their respective owners._
