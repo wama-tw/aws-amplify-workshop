@@ -145,12 +145,12 @@ cd aws-amplify-workshop/amplify-js-app && npm install
 
 接下來可以看一下目前的前端長什麼樣子
 ```shell
-npm start
+npm install -g live-server && live-server --port=8080
 ```
-> 這個指令就會在你的電腦上架一個 HTTP Server 讓你自己可以連上來，並且看到前端畫面
-> 而 `npm start` 實際上執行的指令，就是我們之前在 `package.json` 中設定的
 
-指令執行後 Terminal 會停在執行的畫面，然後將畫面切回瀏覽器，打開 http://localhost:8080
+指令執行後 Terminal 會停在執行的畫面，然後將按下上方的「Preview Running Application」
+![](https://i.imgur.com/wLo52OG.png)
+
 就可以看到剛剛用好的前端畫面了！
 要繼續輸入的話就按 `ctrl+C`
 
@@ -350,8 +350,10 @@ getData();
 
 接著在 command line 輸入
 ```shell
-npm start
+live-server --port=8080
 ```
+指令執行後 Terminal 會停在執行的畫面，然後將按下上方的「Preview Running Application」
+![](https://i.imgur.com/wLo52OG.png)
 要繼續輸入的話就按 `ctrl+C`
 就可以在自己的電腦的瀏覽器上看到成品啦 🤩
 
