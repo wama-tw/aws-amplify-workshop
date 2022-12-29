@@ -75,23 +75,6 @@ AWS Amplify 就是為了可能比較不了解的 AWS 產品們的開發人員而
 - Option2:
   使用今日工作坊的 [Event Engine!!!!!!!!//TODO: Add link](//TODO)（工作坊結束後會自動銷毀）
 
-## AWS Amplify 是什麼？
-> [AWS Amplify](https://aws.amazon.com/tw/amplify/) 是一種完整的解決方案，讓前端 Web 和行動開發人員可以快速在 AWS 上建置、推出和託管完整堆疊應用程式，並且靈活地利用廣泛的 AWS 服務以因應使用案例的發展。不需要雲端專業技能。
-
-AWS 擁有眾多產品，例如 Amazon Elastic Compute Cloud (Amazon EC2)、Amazon Simple Storage Service (Amazon S3)、Amazon DynamoDB、AWS Identity and Access Management (AWS IAM)、Amazon SageMaker 等等。
-如果把每一個產品想像成一種食材，那解決方案就像是食譜，它告訴你如何組合各種食材，完成你想要的菜。
-
-如果你是廚師，你很了解各種食材，那你當然可以很自由的運用每一種食材（AWS 的產品），完美的將它們組合成為一道美味的菜餚（也就是你運行在 AWS 上的服務）。
-
-那萬一你了解的服務不多，不會煮菜怎麼辦？
-
-AWS Amplify 就是為了可能比較不了解的 AWS 產品們的開發人員而生。AWS Amplify 就像一家賣料理包的商店，如果想吃咖哩，就買咖哩的料理包回家加熱一下拌飯就可以吃了。你根本不需要知道咖哩是怎麼煮出來的。
-例如今天的工作坊，透過 AWS Amplify，就算我不知道 AWS 其他任何的產品怎麼用，我們還是可以在 AWS 上建置一個全端的網頁。但是它實際上就是運用 AWS 上各種產品來組合而成的。（如果你知道 AWS CloudFormation 的話，AWS Amplify 的背後其實就是利用 AWS CloudFormation 來建置和串起各個 AWS 的服務）
-
-![](https://i.imgur.com/gkYbcYW.png)
-> image source: [What is AWS Amplify? Pros and Cons?](https://www.youtube.com/watch?v=HkbjHtG_d7w)
-
-
 ## 下載及設定 Amplify CLI
 - 打開 Terminal/終端機(MacOS) 或 PowerShell(Windows)
 (如果你的作業系統是這兩個以外的話，我相信你知道要開什麼 XD)
