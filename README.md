@@ -73,7 +73,7 @@ AWS Amplify 就是為了可能比較不了解的 AWS 產品們的開發人員而
 - Option 1:
   如果你想保留今天做出來的成果，你可以使用 [你自己的 AWS 帳號](https://portal.aws.amazon.com/billing/signup?redirect_url=https%3A%2F%2Faws.amazon.com%2Fregistration-confirmation#/start)（需要綁定信用卡）
 - Option2:
-  使用今日工作坊的 [Event Engine!!!!!!!!//TODO: Add link](//TODO)（工作坊結束後會自動銷毀）
+  使用今日工作坊的 [Event Engine](https://dashboard.eventengine.run/login?hash=ba6a-1ce713c1e4-8c&persistent=true)（工作坊結束後會自動銷毀）
 
 ## 下載及設定 Amplify CLI
 - 打開 Terminal/終端機(MacOS) 或 PowerShell(Windows)
